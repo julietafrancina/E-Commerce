@@ -4,7 +4,8 @@ import { Item } from "../../models/Item.js";
 
 export const getAllCarts = async (req, res) => {
   try {
-    const cartData = await Cart.findAll();
+    const cartData = await Cart.findAll({ where: { available: false } });
+    console.log(cartData);
     res.status(200).json(cartData);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -46,7 +47,7 @@ export const createCart = async (req, res) => {
     const active = await Cart.findOne({
       where: { available: true },
     });
-    if (active != null) {
+    if (active !== null) {
       res.status(200).json(active);
     } else {
       const newCart = await Cart.create();
@@ -79,13 +80,18 @@ export const deleteCart = async (req, res) => {
 export const updateCart = async (req, res) => {
   try {
     const { id } = req.params;
-    const newCart = req.body;
-    await Cart.update(newCart, {
-      where: {
-        id: id,
-      },
+    console.log("id", id);
+    const currentCart = await Cart.findOne({
+      where: { id: id },
     });
+    const currentValue = currentCart.available;
 
+    await Cart.update(
+      { available: !currentValue },
+      {
+        where: { id: id },
+      }
+    );
     res.status(200).json("Your cart has been updated successfully!");
   } catch (error) {
     res.status(404).json({ message: error.message });

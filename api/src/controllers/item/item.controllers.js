@@ -79,14 +79,18 @@ export const updateItem = async (req, res) => {
   try {
     const { id } = req.params;
     const newItem = req.body;
+
     const itemToUpdate = await Item.findByPk(id);
-    let unitPrice = await findProduct(itemToUpdate.productId);
+    console.log(itemToUpdate);
+    let unitPrice = await findProduct(itemToUpdate.dataValues.productId);
     unitPrice = unitPrice.price;
+    console.log(newItem, unitPrice);
 
-    const newQuantity = newItem.quantity;
-    const newTotal = newQuantity * unitPrice;
-
-    await Item.update({ ...newItem, total: newTotal }, { where: { id: id } });
+    const newTotal = newItem.newValue * unitPrice;
+    await Item.update(
+      { quantity: newItem.newValue, total: newTotal },
+      { where: { id: id } }
+    );
 
     res.status(200).json("Your product has been successfully updated!");
   } catch (error) {
