@@ -13,7 +13,6 @@ const app = express();
 
 const buildPath = path.join(__dirname, "build");
 
-// Configurar CORS para permitir solicitudes desde http://localhost:3001
 app.use(cors({ origin: "http://localhost:3001" }));
 
 app.use(express.static(buildPath));

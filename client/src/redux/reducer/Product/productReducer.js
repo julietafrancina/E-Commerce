@@ -3,6 +3,7 @@ import * as types from "../../actionsTypes/actionsTypes.js";
 const initialState = {
   products: [],
   currentProduct: {},
+  responses: "",
 };
 
 export const productReducer = (state = initialState, action) => {
@@ -23,6 +24,11 @@ export const productReducer = (state = initialState, action) => {
       return {
         ...state,
         currentProduct: action.payload,
+      };
+    case types.CREATE_PRODUCT:
+      return {
+        ...state,
+        responses: action.payload,
       };
 
     default:

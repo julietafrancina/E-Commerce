@@ -33,20 +33,23 @@ export function getProductByName(name) {
   };
 }
 
-// export function createProduct(payload) {
-// return async function (dispatch) {
-//   try {
-//     const product = await axios.post(`http://localhost:3000/products`, payload);
+export function createProduct(newProduct) {
+  return async function (dispatch) {
+    try {
+      const product = await axios.post(
+        `http://localhost:3000/products`,
+        newProduct
+      );
 
-//     return dispatch({
-//       type: types.CREATE_PRODUCT,
-//       payload: product.data,
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// }
+      return dispatch({
+        type: types.CREATE_PRODUCT,
+        payload: product.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 
 export function getProductById(id) {
   return async function (dispatch) {
