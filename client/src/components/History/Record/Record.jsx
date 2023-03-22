@@ -1,18 +1,24 @@
-import React from "react";
-// import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as cartActions from "../../../redux/reducer/Cart/cartActions.js";
-// import * as itemActions from "../../../redux/reducer/Item/itemActions.js";
 
 export default function Record({ recordId, state }) {
+  const { cart } = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const handleHistory = () => {
-    console.log(recordId);
-    dispatch(cartActions.updateCart(recordId, recordId));
-    dispatch(cartActions.updateCart(id));
+    dispatch(cartActions.updateCart(recordId));
+    if (cart && cart.length) {
+      dispatch(cartActions.updateCart(id));
+    } else {
+      dispatch(cartActions.deleteCart(id));
+    }
+    setTimeout(() => {
+      navigate("/home");
+    }, 3000);
   };
 
   return (

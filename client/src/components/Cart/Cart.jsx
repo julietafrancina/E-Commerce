@@ -2,9 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
 import * as cartActions from "../../redux/reducer/Cart/cartActions.js";
-import * as itemActions from "../../redux/reducer/Item/itemActions.js";
 import Item from "../Cart/Item/Item";
 
 export default function Cart() {
@@ -14,17 +12,17 @@ export default function Cart() {
   const { cart } = useSelector((state) => state.cartReducer);
 
   useEffect(() => {
-    if (id !== undefined) {
-      dispatch(cartActions.getCartByItem(id));
-    }
-    dispatch(cartActions.createCart());
+    dispatch(cartActions.getCartByItem(id));
   }, [dispatch, id]);
 
-  console.log(cart);
   const handleCheckout = () => {
     if (cart && cart.length) {
       dispatch(cartActions.updateCart(id));
+    } else {
+      dispatch(cartActions.deleteCart(id));
     }
+    alert("OK");
+    navigate("/home");
   };
 
   return (

@@ -34,6 +34,7 @@ export default function Product({ id, name, price, description, image }) {
   const minValue = 1;
   const finalPrice = (price * input).toFixed(2);
   const { activeCart } = useSelector((state) => state.cartReducer);
+
   let cartId;
 
   const [item, setItem] = useState({
@@ -44,8 +45,9 @@ export default function Product({ id, name, price, description, image }) {
   });
 
   useEffect(() => {
-    if (activeCart && activeCart.id)
+    if (activeCart && activeCart.id) {
       setItem({ ...item, cartId: activeCart.id });
+    }
   }, [activeCart]);
 
   const handleClick = (e) => {
@@ -64,14 +66,10 @@ export default function Product({ id, name, price, description, image }) {
     }
   };
 
-  const handleAddToCart = (activeCart) => {
-    // console.log(item);
-    // if (activeCart && activeCart.id)
-    //   setItem({ ...item, cartId: activeCart.id });
+  const handleAddToCart = () => {
     dispatch(itemActions.createItem(item));
   };
 
-  // const handleChange = () => {};
   return (
     <div className={s.productCard}>
       <div>
@@ -112,7 +110,6 @@ export default function Product({ id, name, price, description, image }) {
           <button
             className="s.addToCartButton"
             name="add"
-            // onChange={handleChange}
             onClick={handleAddToCart}
           >
             Add To Cart

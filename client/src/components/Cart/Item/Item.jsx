@@ -1,48 +1,53 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import * as cartActions from "../../../redux/reducer/Cart/cartActions.js";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import * as itemActions from "../../../redux/reducer/Item/itemActions.js";
 
 export default function Item({ idItem, id, name, quantity, total }) {
   const dispatch = useDispatch();
   const maxValue = 10;
   const minValue = 1;
+  const [item, setItem] = useState({ idItem, id, name, quantity, total });
   const [input, setInput] = useState(quantity);
   const [amount, setAmout] = useState({ input });
-  const { currentItems } = useSelector((state) => state.cartReducer);
-
-  useEffect(() => {
-    console.log(currentItems);
-  }, []);
+  const unitPrice = total / quantity;
+  const [value, setValue] = useState(total);
 
   const handleClick = (e) => {
     if (e.target.name === "+") {
       let newValue = input + 1;
       if (newValue <= maxValue) {
         setInput(newValue);
+        setValue((newValue * unitPrice).toFixed(2));
         setAmout({ newValue });
       }
     } else if (e.target.name === "-") {
       let newValue = input - 1;
       if (newValue >= minValue) {
         setInput(newValue);
+        setValue((newValue * unitPrice).toFixed(2));
         setAmout({ newValue });
       }
     } else {
       dispatch(itemActions.deleteItem(idItem));
+      setItem(null);
     }
   };
 
   const handleUpdateCart = () => {
     dispatch(itemActions.updateItem(idItem, amount));
   };
+
+  if (item) {
+    return null;
+  }
+
   return (
     <div className="s.cardItemContainer">
       <div>
         <h2 className="s.itemTitle">{name}</h2>
-        <span className="s.itemData">{quantity}</span>
-        <span className="s.itemData">{total}</span>
+        <span className="s.itemData"></span>
+        {value}
       </div>
       <div>
         <input className="s.productQuantity" type="text" value={input} />

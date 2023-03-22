@@ -1,5 +1,5 @@
 import { Item } from "../../models/Item.js";
-import { findProduct } from "../helpers/helpers.js";
+import { findItem, findProduct } from "../helpers/helpers.js";
 
 export const getAllItems = async (req, res) => {
   try {
@@ -43,14 +43,27 @@ export const createItem = async (req, res) => {
         `There is not an available product with the id ${productId}`
       );
     }
-
-    await Item.create({
-      productId,
-      quantity,
-      name,
-      total,
-      cartId,
-    });
+    const verify = await findItem(productId, cartId);
+    if (verify) {
+      await Item.update(
+        {
+          productId,
+          quantity,
+          name,
+          total,
+          cartId,
+        },
+        { where: { id: verify.id } }
+      );
+    } else {
+      await Item.create({
+        productId,
+        quantity,
+        name,
+        total,
+        cartId,
+      });
+    }
 
     res.status(200).json("Your product has been successfully created!");
   } catch (error) {

@@ -7,7 +7,6 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   productsWrapper: {
-    // backgroundColor: "red",
     padding: "0px 30px",
     fontFamily: "Nunito Sans",
   },

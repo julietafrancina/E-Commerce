@@ -1,7 +1,5 @@
 import React from "react";
 import Products from "../Products/Products";
-import { Link } from "react-router-dom";
-import NavBar from "../NavBar/NavBar";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as cartActions from "../../redux/reducer/Cart/cartActions.js";

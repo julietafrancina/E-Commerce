@@ -53,7 +53,6 @@ export default function NavBar() {
   }, [activeCart]);
 
   function setMenu() {
-    console.log(menuOpen);
     setMenuOpen(!menuOpen);
   }
 
