@@ -1,33 +1,46 @@
 import React from "react";
-//import { useState } from "react";
-//import { useDispatch } from "react-redux";
-// import { getRecipeByTitle } from "../../actions/index";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import * as productActions from "../../redux/reducer/Product/productActions.js";
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles({
+  contentWrapper: {
+    padding: "0px 30px",
+    fontFamily: "Nunito Sans",
+  },
+  heroTitle: {
+    textAlign: "center",
+    marginTop: 30,
+    fontWeight: 300,
+    fontSize: 35,
+    lineHeight: 1,
+    color: "#3A3333",
+  },
+});
 
 export default function Search() {
-  //   const dispatch = useDispatch();
-  //   const [name, setName] = useState("");
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  const s = useStyles();
 
-  //   function handleChange(e) {
-  //     e.preventDefault();
-  //     setName(e.target.value);
-  //   }
-  //   function handleSubmit(e) {
-  //     e.preventDefault();
-  //     dispatch(getRecipeByTitle(name));
-  //     setName("");
-  //   }
+  function handleChange(e) {
+    setName(e.target.value);
+    console.log(name);
+  }
+  function handleSubmit(e) {
+    dispatch(productActions.getProductByName(name));
+    setName("");
+  }
 
   return (
     <div>
-      {" "}
-      Search
-      {/* <form className={s.formWrapper}>
+      <form className={s.formWrapper}>
         <input
           className={s.searchInput}
           type="text"
           id="name"
           autoComplete="off"
-          placeholder="Search recipe by name"
+          placeholder="Search product by name"
           value={name}
           onChange={(e) => handleChange(e)}
         />
@@ -38,7 +51,7 @@ export default function Search() {
         >
           Search
         </button>
-      </form> */}
+      </form>
     </div>
   );
 }

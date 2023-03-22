@@ -33,6 +33,7 @@ export default function Home() {
       <div>
         <h1 className={s.heroTitle}>Find the best product for you</h1>
       </div>
+
       <Products />
     </div>
   );
