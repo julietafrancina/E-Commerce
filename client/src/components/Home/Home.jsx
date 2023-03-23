@@ -12,9 +12,17 @@ const useStyles = makeStyles({
   },
   heroTitle: {
     textAlign: "center",
-    marginTop: 30,
-    fontWeight: 300,
+    marginTop: 20,
+    fontWeight: 700,
     fontSize: 35,
+    lineHeight: 1,
+    color: "#3A3333",
+  },
+  heroDescription: {
+    textAlign: "center",
+    marginBottom: 40,
+    fontWeight: 300,
+    fontSize: 23,
     lineHeight: 1,
     color: "#3A3333",
   },
@@ -31,7 +39,10 @@ export default function Home() {
   return (
     <div className={s.contentWrapper}>
       <div>
-        <h1 className={s.heroTitle}>Find the best product for you</h1>
+        <h1 className={s.heroTitle}>Swipe to browse</h1>
+        <h1 className={s.heroDescription}>
+          Shop the most modern furniture by swiping from one product to another
+        </h1>
       </div>
 
       <Products />

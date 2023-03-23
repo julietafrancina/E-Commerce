@@ -7,7 +7,6 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   productsWrapper: {
-    padding: "0px 30px",
     fontFamily: "Nunito Sans",
   },
   heroTitle: {

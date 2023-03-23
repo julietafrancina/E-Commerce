@@ -56,7 +56,6 @@ export function getProductById(id) {
     try {
       const product = await axios(`http://localhost:3000/products/${id}`).then(
         (response) => {
-          console.log("response", product);
           dispatch({ type: types.GET_PRODUCT_BY_ID, payload: product.data });
         }
       );

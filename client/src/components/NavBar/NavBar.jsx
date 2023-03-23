@@ -10,22 +10,42 @@ const useStyles = makeStyles(() => ({
   hamburgerBtn: {
     display: "none",
   },
-
+  mainContainer: {
+    position: "absolute",
+  },
   "@media (min-width: 768px)": {
     link: {
       display: "flex",
     },
     menuOpen: {
+      position: "fixed",
+      height: "100%",
+      width: "100%",
+      backgroundColor: "red",
       display: "none",
     },
   },
-  menuOpen: {
-    backgroundColor: "red",
+  listItem: {
+    marginBottom: 10,
+    textDecoration: "none",
+    fontWeight: 500,
+    fontSize: 25,
   },
   menuClosed: {
     display: "none",
   },
-
+  listItems: {
+    color: "red",
+    height: "55vw",
+    width: "100vw",
+    zIndex: 1,
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    padding: 15,
+    background: "rgba(255, 255, 255, 0.27)",
+    backdropFilter: "blur(30px)",
+  },
   "@media (max-width: 768px)": {
     hamburgerBtn: {
       display: "flex",
@@ -60,47 +80,48 @@ export default function NavBar() {
     <div>
       <header>
         <div className={s.hamburgerBtn} onClick={setMenu}>
-          <i class="material-icons">view_headline</i>
+          <i class="material-icons">dehaze</i>
         </div>
-
         {/* <img
           className="s.logo"
           src=""
         /> */}
-        <div>
+        <div className={s.mainContainer}>
           <nav className={menuOpen ? s.menuOpen : s.menuClosed}>
-            <Link to="/home" className={s.menuOpen}>
-              <a>Home</a>
-            </Link>
-            <Link to={`/cart/${id}`} className={s.menuOpen}>
-              <a>Cart</a>
-            </Link>
-            <Link to={`/history/${id}`} className={s.menuOpen}>
-              <a>Purchase History</a>
-            </Link>
-            <Link to="/about" className={s.menuOpen}>
-              <a>About Tubesoft Project</a>
-            </Link>
-            <Link to="/create" className={s.menuOpen}>
-              <a>Create new product +</a>
-            </Link>
+            <div className={s.listItems} onClick={setMenu}>
+              <Link to="/home" className={s.listItem}>
+                <a className={s.listItem}>Home</a>
+              </Link>
+              <Link to={`/cart/${id}`} className={s.listItem}>
+                <a className={s.listItem}>Cart</a>
+              </Link>
+              <Link to={`/history/${id}`} className={s.listItem}>
+                <a className={s.listItem}> History</a>
+              </Link>
+              <Link to="/about" className={s.listItem}>
+                <a className={s.listItem}>About </a>
+              </Link>
+              <Link to="/create" className={s.listItem}>
+                <a className={s.listItem}>Post product </a>
+              </Link>
+            </div>
           </nav>
         </div>
         <nav>
           <Link to="/home" className={s.link}>
-            <a>Home</a>
+            <a className={s.listItem}>Home</a>
           </Link>
           <Link to={`/cart/${id}`} className={s.link}>
-            <a>Cart</a>
+            <a className={s.listItem}>Cart</a>
           </Link>
           <Link to={`/history/${id}`} className={s.link}>
-            <a>Purchase History</a>
+            <a className={s.listItem}>Purchase History</a>
           </Link>
           <Link to="/about" className={s.link}>
-            <a>About Tubesoft Project</a>
+            <a className={s.listItem}>About </a>
           </Link>
           <Link to="/create" className={s.link}>
-            <a>Create new product +</a>
+            <a className={s.listItem}>Post product</a>
           </Link>
         </nav>
       </header>

@@ -5,24 +5,79 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   productCard: {
-    borderRadius: 10,
+    borderRadius: 30,
     marginBottom: 40,
-    boxShadow: "0px 0px 20px 3px rgba(131, 158, 127, 0.2)",
+    boxShadow: "0px 0px 20px 3px rgba(131, 158, 127, 0.25)",
   },
   productImage: {
-    borderRadius: "10px 10px 0 0 ",
+    objectFit: "cover",
+    borderRadius: "30px 30px 0 0 ",
     width: "100%",
     height: 350,
   },
   productInfo: {
     padding: 15,
   },
+  name: {
+    marginRight: 15,
+  },
+  price: {
+    color: "#646E5A",
+    fontWeight: 800,
+    fontSize: 25,
+  },
   productData: {
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",
     display: "flex",
-    alignItems: "stretch",
+    alignItems: "center",
+    marginBottom: 5,
+  },
+  productControllers: {
+    position: "relative",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  productQuantity: {
+    height: "100%",
+    width: 30,
+    textAlign: "center",
+    border: "none",
+    fontFamily: "Nunito Sans",
+    fontWeight: 600,
+    fontSize: 20,
+  },
+  productInc: {
+    height: "100%",
+    width: 30,
+    border: "none",
+    backgroundColor: "#F3F3F3",
+    borderRadius: 20,
+    fontWeight: 600,
+    fontSize: 20,
+    color: "#848386",
+  },
+  addToCartButton: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    border: "none",
+    backgroundColor: "#21252A",
+    color: "#F5FBFB",
+    fontFamily: "Nunito Sans",
+    fontWeight: 400,
+    padding: "10px 30px",
+    borderRadius: 30,
+    fontSize: 15,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    minWidth: 175,
+  },
+  quantityControllers: {
+    height: 30,
+    paddingBottom: 5,
   },
 });
 
@@ -81,38 +136,41 @@ export default function Product({ id, name, price, description, image }) {
       </div>
       <div className={s.productInfo}>
         <div className={s.productData}>
-          <h2>{name}</h2>
-          <p>{finalPrice ? finalPrice : price}</p>
+          <h2 className={s.name}>{name}</h2>
+          <p className={s.price}>{finalPrice ? finalPrice : price}</p>
         </div>
-        <div className="s.productControllers">
+        <div className={s.productControllers}>
+          <div className={s.quantityControllers}>
+            <button
+              className={s.productInc}
+              name="-"
+              onClick={handleClick}
+              disabled={input <= minValue}
+            >
+              -
+            </button>
+            <input
+              className={s.productQuantity}
+              type="text"
+              value={input}
+              onChange={(e) => setInput(parseInt(e.target.value) || 1)}
+            />
+            <button
+              className={s.productInc}
+              name="+"
+              onClick={handleClick}
+              disabled={input >= maxValue}
+            >
+              +
+            </button>
+          </div>
+
           <button
-            className="s.productInc"
-            name="-"
-            onClick={handleClick}
-            disabled={input <= minValue}
-          >
-            -
-          </button>
-          <input
-            className="s.productQuantity"
-            type="text"
-            value={input}
-            onChange={(e) => setInput(parseInt(e.target.value) || 1)}
-          />
-          <button
-            className="s.productInc"
-            name="+"
-            onClick={handleClick}
-            disabled={input >= maxValue}
-          >
-            +
-          </button>
-          <button
-            className="s.addToCartButton"
+            className={s.addToCartButton}
             name="add"
             onClick={handleAddToCart}
           >
-            Add To Cart
+            Add to Cart <i class="material-icons">shopping_cart</i>
           </button>
         </div>
       </div>

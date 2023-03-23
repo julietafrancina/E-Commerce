@@ -4,9 +4,34 @@ import { useDispatch, useSelector } from "react-redux";
 import * as productActions from "../../redux/reducer/Product/productActions.js";
 
 const useStyles = makeStyles({
+  mainWrapper: {
+    minHeight: "30vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "Nunito Sans",
+    fontWeight: 500,
+  },
   contentWrapper: {
+    marginTop: "10px",
+    marginBottom: "10px",
+    display: "flex",
+    backgroundColor: "#fafcfe",
+    height: "100%",
+    backgroundSize: "cover",
+    borderRadius: 1,
+    flexDirection: "column",
+    position: "relative",
     padding: "0px 30px",
     fontFamily: "Nunito Sans",
+  },
+  title: {
+    textAlign: "center",
+    marginTop: 20,
+    fontWeight: 700,
+    fontSize: 35,
+    lineHeight: 1,
+    color: "#3A3333",
   },
 });
 
@@ -33,7 +58,7 @@ export default function CreateProduct() {
   const [state, setState] = useState({
     name: "",
     description: "",
-    price: 0,
+    price: "",
     image: "",
   });
 
@@ -43,7 +68,6 @@ export default function CreateProduct() {
       [e.target.name]: e.target.value,
     });
     setErrors(validate(state));
-    console.log(state);
   }
 
   function handleSubmit(e) {
@@ -51,7 +75,7 @@ export default function CreateProduct() {
     setState({
       name: "",
       description: "",
-      price: 0,
+      price: "",
       image: "",
     });
     alert("Product created!");
@@ -65,7 +89,7 @@ export default function CreateProduct() {
           <h1 className={s.title}>Let's post a new product!</h1>
           <form className={s.formWrapper} onSubmit={(e) => handleSubmit(e)}>
             <div className={s.boxWrapper}>
-              <label className={s.label}>name:</label>
+              <label className={s.label}>Name:</label>
               <input
                 className={s.nameInput}
                 type="text"
