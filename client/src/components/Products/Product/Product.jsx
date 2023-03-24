@@ -1,93 +1,9 @@
 import { React, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as itemActions from "../../../redux/reducer/Item/itemActions.js";
-import { makeStyles } from "@mui/styles";
+import { useStyles } from "./Product.styles.js";
 
-const useStyles = makeStyles({
-  productCard: {
-    marginRight: 40,
-    borderRadius: 30,
-    marginBottom: 40,
-    boxShadow: "0px 0px 20px 3px rgba(131, 158, 127, 0.25)",
-  },
-  productImage: {
-    objectFit: "cover",
-    borderRadius: "30px 30px 0 0 ",
-    width: "100%",
-    height: "100%",
-  },
-  productInfo: {
-    padding: 15,
-  },
-  name: {
-    marginRight: 15,
-  },
-  price: {
-    color: "#646E5A",
-    fontWeight: 800,
-    fontSize: 25,
-  },
-  productData: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    marginBottom: 5,
-  },
-  productControllers: {
-    position: "relative",
-    display: "flex",
-    justifyContent: "start",
-    alignItems: "center",
-  },
-  productQuantity: {
-    height: "100%",
-    width: 30,
-    textAlign: "center",
-    border: "none",
-    fontFamily: "Nunito Sans",
-    fontWeight: 600,
-    fontSize: 20,
-  },
-  productInc: {
-    height: "100%",
-    width: 30,
-    border: "none",
-    backgroundColor: "#F3F3F3",
-    borderRadius: 20,
-    fontWeight: 600,
-    fontSize: 27,
-    color: "#848386",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    fontFamily: "Nunito Sans",
-    fontWeight: 600,
-  },
-  addToCartButton: {
-    position: "absolute",
-    bottom: 0,
-    right: 0,
-    border: "none",
-    backgroundColor: "#21252A",
-    "&:active": {
-      backgroundColor: "#C1C1C1",
-    },
-    color: "#F5FBFB",
-    fontFamily: "Nunito Sans",
-    fontWeight: 400,
-    padding: "10px 30px",
-    borderRadius: 30,
-    fontSize: 15,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    minWidth: 175,
-  },
-});
-
-export default function Product({ id, name, price, description, image }) {
+export default function Product({ id, name, price, image }) {
   const s = useStyles();
   const dispatch = useDispatch();
   const [input, setInput] = useState(1);

@@ -19,9 +19,6 @@ export const Product = sequelize.define(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
-    description: {
-      type: DataTypes.TEXT,
-    },
     image: {
       type: DataTypes.TEXT,
     },

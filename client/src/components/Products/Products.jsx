@@ -3,23 +3,7 @@ import Product from "./Product/Product";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as productActions from "../../redux/reducer/Product/productActions.js";
-import { makeStyles } from "@mui/styles";
-
-const useStyles = makeStyles({
-  productsWrapper: {
-    flexWrap: "wrap",
-    display: "flex",
-    fontFamily: "Nunito Sans",
-  },
-  heroTitle: {
-    textAlign: "center",
-    marginTop: 30,
-    fontWeight: 300,
-    fontSize: 35,
-    lineHeight: 1,
-    color: "#3A3333",
-  },
-});
+import { useStyles } from "./Products.styles";
 
 export default function Products() {
   const s = useStyles();

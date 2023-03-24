@@ -2,19 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as cartActions from "../../redux/reducer/Cart/cartActions.js";
 import Record from "../History/Record/Record.jsx";
-import { makeStyles } from "@mui/styles";
-const useStyles = makeStyles({
-  title: {
-    fontFamily: "Nunito Sans",
-
-    textAlign: "center",
-    marginTop: 0,
-    fontWeight: 700,
-    fontSize: 35,
-    lineHeight: 1,
-    color: "#3A3333",
-  },
-});
+import { useStyles } from "./History.styles.js";
 
 export default function History() {
   const dispatch = useDispatch();

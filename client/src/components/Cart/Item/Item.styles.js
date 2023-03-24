@@ -1,0 +1,73 @@
+import { makeStyles } from "@mui/styles";
+
+export const useStyles = makeStyles({
+  cardItemContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    borderRadius: 30,
+    marginBottom: 40,
+    boxShadow: "0px 0px 20px 3px rgba(131, 158, 127, 0.25)",
+    padding: 15,
+    minHeight: 125,
+    position: "relative",
+  },
+  productData: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 10,
+  },
+  itemTitle: {
+    marginTop: 0,
+    marginBottom: 0,
+    marginRight: 15,
+  },
+  itemPrice: {
+    color: "#646E5A",
+    fontWeight: 800,
+    fontSize: 25,
+  },
+  productInc: {
+    height: "100%",
+    width: 30,
+    border: "none",
+    backgroundColor: "#F3F3F3",
+    borderRadius: 10,
+    fontWeight: 600,
+    fontSize: 20,
+    color: "#848386",
+  },
+  deleteButton: {
+    background: "none",
+    border: "none",
+  },
+  productQuantity: {
+    height: "100%",
+    width: 30,
+    textAlign: "center",
+    border: "none",
+    fontFamily: "Nunito Sans",
+    fontWeight: 600,
+    fontSize: 20,
+  },
+  productFooter: {
+    display: "flex",
+  },
+  addToCartButton: {
+    position: "absolute",
+    bottom: 15,
+    right: 15,
+    border: "none",
+    backgroundColor: "#21252A",
+    color: "#F5FBFB",
+    fontFamily: "Nunito Sans",
+    fontWeight: 400,
+    padding: "10px 30px",
+    borderRadius: 30,
+    fontSize: 15,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+});

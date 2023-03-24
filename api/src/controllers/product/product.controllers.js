@@ -30,14 +30,13 @@ export const getProducts = async (req, res) => {
 
 export const createProduct = async (req, res) => {
   try {
-    const { name, price, description, image } = req.body;
-    if (!(name || price || description || image)) {
+    const { name, price, image } = req.body;
+    if (!(name || price || image)) {
       throw new Error(`Sorry, you must enter valid information`);
     } else {
-      const newProduct = await Product.create({
+      await Product.create({
         name,
         price,
-        description,
         image,
       });
 
