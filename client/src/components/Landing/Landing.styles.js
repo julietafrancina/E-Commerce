@@ -15,7 +15,7 @@ export const useStyles = makeStyles({
     height: "100vh",
     width: "50%",
     background: "rgba(255, 255, 255, 0.27)",
-    backdropFilter: "blur(11px)",
+    backdropFilter: "blur(10px)",
   },
   contentWrapper: {
     fontFamily: "Nunito Sans",

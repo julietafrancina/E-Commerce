@@ -53,7 +53,7 @@ export default function CreateProduct() {
     <div className={s.mainWrapper}>
       <div className={s.blur}>
         <section className={s.contentWrapper}>
-          <h1 className={s.title}>Let's post a new product!</h1>
+          <h1 className={s.title}>Let's post a new product</h1>
           <form className={s.formWrapper} onSubmit={(e) => handleSubmit(e)}>
             <div className={s.boxWrapper}>
               <label className={s.label}>Name</label>

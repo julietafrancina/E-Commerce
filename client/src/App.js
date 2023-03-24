@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./components/Home/Home";
 import Cart from "./components/Cart/Cart";
@@ -9,9 +9,11 @@ import History from "./components/History/History";
 import CreateProduct from "./components/CreateProduct/CreateProduct";
 
 function App() {
+  const location = useLocation();
+  const renderNav = location.pathname !== "/";
   return (
     <>
-      <NavBar />
+      {renderNav && <NavBar />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
