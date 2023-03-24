@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Silla Comedor Windsor",
+    "price": 250,
+    "image": "https://images.unsplash.com/photo-1607541428479-41cb4f036642?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
+    "description": "Silla Windsor de comedor con diseño clásico y elegante."
+  },
+  {
+    "name": "Sillón Panamá",
+    "price": 150,
+    "image": "https://images.unsplash.com/photo-1579656592043-a20e25a4aa4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "description": "Sillón de estilo Panamá para una decoración fresca y moderna."
+  },
+  {
+    "name": "Escritorio Cedro",
+    "price": 1250,
+    "image": "https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+    "description": "Escritorio de cedro con estilo clásico y gran calidad."
+  },
+  {
+    "name": "Silla Begini",
+    "price": 750,
+    "image": "https://images.unsplash.com/photo-1605797063874-aa940c9eb12a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    "description": "Silla Begini de diseño moderno y gran comodidad para su hogar."
+  },
+  {
+    "name": "Espejo plata",
+    "price": 950,
+    "image": "https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80",
+    "description": "Espejo de plata de gran calidad y diseño elegante para su hogar."
+  },
+  {
+    "name": "Bancos Mamushka",
+    "price": 1530,
+    "image": "https://images.unsplash.com/photo-1611486212355-d276af4581c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "description": " Diseño y confort en tus espacios comunes. Diseño y confort en tus espacios comunes."
+  },
+  {
+    "name": "Sillon Individual",
+    "price": 1800,
+    "image": "https://images.unsplash.com/photo-1634148737510-727f137375e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    "description": " Una pieza cómoda y elegante para tu rincón favorito"
+  },
+  {
+    "name": "Chesterfield",
+    "price": 3000,
+    "image": "https://images.unsplash.com/photo-1575806980151-1078f5578718?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    "description": "Sillón de cuero, sofisticación y estilo en un solo mueble."
+  }
+]

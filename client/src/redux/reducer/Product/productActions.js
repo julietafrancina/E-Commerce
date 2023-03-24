@@ -54,11 +54,9 @@ export function createProduct(newProduct) {
 export function getProductById(id) {
   return async function (dispatch) {
     try {
-      const product = await axios
-        .get(`http://localhost:3000/products/${id}`)
-        .then((response) => {
-          dispatch({ type: types.GET_PRODUCT_BY_ID, payload: product.data });
-        });
+      const response = await axios.get(`http://localhost:3000/products/${id}`);
+      const product = response.data;
+      dispatch({ type: types.GET_PRODUCT_BY_ID, payload: product });
     } catch (error) {
       console.log(error);
     }

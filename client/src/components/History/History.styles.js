@@ -9,4 +9,13 @@ export const useStyles = makeStyles({
     lineHeight: 1,
     color: "#3A3333",
   },
+  description: {
+    marginRight: 30,
+    textAlign: "center",
+    marginBottom: 40,
+    fontWeight: 300,
+    fontSize: 23,
+    lineHeight: 1,
+    color: "#3A3333",
+  },
 });

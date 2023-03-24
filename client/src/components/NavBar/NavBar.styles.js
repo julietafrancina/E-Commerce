@@ -8,6 +8,7 @@ export const useStyles = makeStyles(() => ({
     display: "none",
   },
   mainContainer: {
+    borderBottomRightRadius: 30,
     zIndex: 1,
     position: "absolute",
   },
@@ -22,6 +23,7 @@ export const useStyles = makeStyles(() => ({
     display: "none",
   },
   listItems: {
+    borderBottomRightRadius: 30,
     height: "55vw",
     width: "55vw",
     zIndex: 2,

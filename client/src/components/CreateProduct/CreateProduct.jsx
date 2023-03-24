@@ -29,6 +29,7 @@ export default function CreateProduct() {
     name: "",
     price: "",
     image: "",
+    description: "",
   });
 
   function handleInputChange(e) {
@@ -45,6 +46,7 @@ export default function CreateProduct() {
       name: "",
       price: "",
       image: "",
+      description: "",
     });
     alert("Product created!");
   }
@@ -80,6 +82,17 @@ export default function CreateProduct() {
               />
             </div>
             {errors.price && <h5 className="errorMessage">{errors.price}</h5>}
+            <div className={s.boxWrapper}>
+              <label className={s.label}>Description</label>
+              <input
+                className={s.nameInput}
+                type="text"
+                name="description"
+                value={state.description}
+                placeholder="Description"
+                onChange={(e) => handleInputChange(e)}
+              />
+            </div>
             <div className={s.boxWrapper}>
               <label className={s.label}>Image</label>
               <input

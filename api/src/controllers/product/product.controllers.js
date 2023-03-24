@@ -30,13 +30,14 @@ export const getProducts = async (req, res) => {
 
 export const createProduct = async (req, res) => {
   try {
-    const { name, price, image } = req.body;
-    if (!(name || price || image)) {
+    const { name, price, description, image } = req.body;
+    if (!(name || price || description || image)) {
       throw new Error(`Sorry, you must enter valid information`);
     } else {
       await Product.create({
         name,
         price,
+        description,
         image,
       });
 
@@ -65,21 +66,16 @@ export const deleteProduct = (req, res) => {
 export const getProductsById = async (req, res) => {
   try {
     const { id } = req.params;
-    if (id) {
-      const productData = await Product.findOne({
-        where: {
-          id: id,
-        },
-      });
+    const productData = await Product.findOne({
+      where: {
+        id: id,
+      },
+    });
 
-      if (productData.length === 0) {
-        throw new Error(`Sorry, there are no products with the id ${id} yet.`);
-      }
-      res.status(200).json(productData);
-    } else {
-      const productData = await Product.findAll();
-      res.status(200).json(productData);
+    if (productData.length === 0) {
+      throw new Error(`Sorry, there are no products with the id ${id} yet.`);
     }
+    res.status(200).json(productData);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }

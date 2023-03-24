@@ -24,7 +24,7 @@ export default function History() {
           );
         })
       ) : (
-        <h3> Go get some products!</h3>
+        <h3 className={s.description}> Go get some products</h3>
       )}
     </div>
   );

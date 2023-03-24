@@ -41,7 +41,11 @@ export default function NavBar() {
         <div className={s.mainContainer}>
           <nav
             className={
-              viewportWidth < 850 ? (menuOpen ? s.menuOpen : s.menuClosed) : " "
+              viewportWidth < 850
+                ? menuOpen
+                  ? s.menuOpen
+                  : s.menuClosed
+                : s.mainContainer
             }
           >
             <div className={s.listItems} onClick={setMenu}>

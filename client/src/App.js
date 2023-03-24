@@ -7,6 +7,7 @@ import About from "./components/About/About";
 import Landing from "./components/Landing/Landing";
 import History from "./components/History/History";
 import CreateProduct from "./components/CreateProduct/CreateProduct";
+import ProductDetail from "./components/Products/Product/ProductDetail/ProductDetail";
 
 function App() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function App() {
         <Route path="/history/:id" element={<History />} />
         <Route path="/about" element={<About />} />
         <Route path="/create" element={<CreateProduct />} />
+        <Route path="/home/:id" element={<ProductDetail />} />
       </Routes>
     </>
   );

@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as cartActions from "../../../redux/reducer/Cart/cartActions.js";
 import { useStyles } from "./Record.styles.js";
 
-export default function Record({ recordId, state }) {
+export default function Record({ recordId }) {
   const s = useStyles();
   const { cart } = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();

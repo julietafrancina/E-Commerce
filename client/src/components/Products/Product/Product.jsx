@@ -1,11 +1,12 @@
 import { React, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {} from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as itemActions from "../../../redux/reducer/Item/itemActions.js";
 import * as productActions from "../../../redux/reducer/Product/productActions.js";
-
 import { useStyles } from "./Product.styles.js";
 
-export default function Product({ id, name, price, image }) {
+export default function Product({ id, name, price, description, image }) {
   const s = useStyles();
   const dispatch = useDispatch();
   const [input, setInput] = useState(1);
@@ -59,11 +60,13 @@ export default function Product({ id, name, price, image }) {
   return (
     <div className={s.productCard}>
       <div>
-        <img
-          alt={"product description"}
-          src={image}
-          className={s.productImage}
-        />
+        <Link to={`/home/${id}`}>
+          <img
+            alt={"product description"}
+            src={image}
+            className={s.productImage}
+          />
+        </Link>
         <button className={s.deleteProduct} onClick={handleDelete}>
           x
         </button>
@@ -73,6 +76,7 @@ export default function Product({ id, name, price, image }) {
           <h2 className={s.name}>{name}</h2>
           <p className={s.price}>{finalPrice ? finalPrice : price}</p>
         </div>
+        <p className={s.description}>{description}</p>
         <div className={s.productControllers}>
           <button
             className={s.productInc}

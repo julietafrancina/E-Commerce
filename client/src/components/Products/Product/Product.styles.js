@@ -105,4 +105,18 @@ export const useStyles = makeStyles({
       backgroundColor: "#C1C1C1",
     },
   },
+  detailWrapper: {
+    height: "100vh",
+    fontFamily: "Nunito Sans",
+    backgroundSize: "cover",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  description: {
+    maxWidth: 400,
+    fontSize: 20,
+    wordWrap: "break-word",
+    paddingBottom: 10,
+  },
 });
