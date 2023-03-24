@@ -2,10 +2,14 @@ import { makeStyles } from "@mui/styles";
 
 export const useStyles = makeStyles({
   productCard: {
+    position: "relative",
     marginRight: 40,
     borderRadius: 30,
     marginBottom: 40,
     boxShadow: "0px 0px 20px 3px rgba(131, 158, 127, 0.25)",
+    "&:hover": {
+      boxShadow: "0px 0px 20px 3px rgba(131, 158, 127, 0.5)",
+    },
   },
   productImage: {
     objectFit: "cover",
@@ -71,6 +75,9 @@ export const useStyles = makeStyles({
     "&:active": {
       backgroundColor: "#C1C1C1",
     },
+    "&:hover": {
+      boxShadow: "0px 0px 20px 3px rgba(131, 158, 127, 0.3)",
+    },
     color: "#F5FBFB",
     fontFamily: "Nunito Sans",
     fontWeight: 400,
@@ -81,5 +88,20 @@ export const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     minWidth: 175,
+  },
+  deleteProduct: {
+    color: "#21252A",
+    backgroundColor: "#F5FBFB",
+    borderRadius: 100,
+    paddingInline: 10,
+    padding: 5,
+    position: "absolute",
+    fontSize: 15,
+    top: 15,
+    right: 15,
+    border: "none",
+    "&:active": {
+      backgroundColor: "#C1C1C1",
+    },
   },
 });

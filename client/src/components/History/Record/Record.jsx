@@ -18,6 +18,7 @@ export default function Record({ recordId, state }) {
     } else {
       dispatch(cartActions.deleteCart(id));
     }
+    alert("OK");
     navigate("/home");
   };
 

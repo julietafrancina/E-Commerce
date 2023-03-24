@@ -5,7 +5,7 @@ export const useStyles = makeStyles({
     height: "100vh",
     fontFamily: "Nunito Sans",
     backgroundImage:
-      "url(https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80)",
+      "url(https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80)",
     backgroundPosition: "center",
     backgroundSize: "cover",
     display: "flex",
@@ -16,7 +16,7 @@ export const useStyles = makeStyles({
   contentWrapper: {
     padding: 20,
     background: "rgba(255, 255, 255, 0.27)",
-    backdropFilter: "blur(5px)",
+    backdropFilter: "blur(25px)",
     borderRadius: 40,
     margin: 20,
   },

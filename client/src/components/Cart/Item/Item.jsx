@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { useDispatch } from "react-redux";
 import * as itemActions from "../../../redux/reducer/Item/itemActions.js";
+
 import { useStyles } from "./Item.styles.js";
 
 export default function Item({ idItem, id, name, quantity, total }) {

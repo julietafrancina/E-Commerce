@@ -53,6 +53,10 @@ export const useStyles = makeStyles({
     position: "absolute",
     bottom: 10,
     boxShadow: "0px 0px 10px rgba(100, 110, 90, 0.5)",
+    "&:hover": {
+      backgroundColor: "#F5FBFB",
+      color: "#646E5A",
+    },
   },
   shopButton: {
     fontWeight: 600,

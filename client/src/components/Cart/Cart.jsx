@@ -9,25 +9,24 @@ import { useStyles } from "./Cart.styles.js";
 export default function Cart() {
   const s = useStyles();
   const { id } = useParams();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state.cartReducer);
-  console.log(cart);
 
   useEffect(() => {
     dispatch(cartActions.getCartByItem(id));
   }, [dispatch, id]);
 
+  const { cart } = useSelector((state) => state.cartReducer);
+  const navigate = useNavigate();
+
   const handleCheckout = () => {
-    if (cart && cart.length) {
-      dispatch(cartActions.updateCart(id));
-    } else {
+    if (!(cart && cart.length)) {
       dispatch(cartActions.deleteCart(id));
+    } else {
+      dispatch(cartActions.updateCart(id));
     }
     alert("OK");
     navigate("/home");
   };
-
   return (
     <div className={s.contentWrapper}>
       <h1 className={s.cartTitle}>Your cart</h1>

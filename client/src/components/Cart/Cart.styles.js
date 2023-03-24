@@ -36,5 +36,9 @@ export const useStyles = makeStyles({
     maxWidth: 450,
     marginBottom: 30,
     margin: "0 auto",
+    "&:hover": {
+      backgroundColor: "#21252A",
+      color: "#F5FBFB",
+    },
   },
 });

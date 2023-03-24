@@ -54,11 +54,25 @@ export function createProduct(newProduct) {
 export function getProductById(id) {
   return async function (dispatch) {
     try {
-      const product = await axios(`http://localhost:3000/products/${id}`).then(
-        (response) => {
+      const product = await axios
+        .get(`http://localhost:3000/products/${id}`)
+        .then((response) => {
           dispatch({ type: types.GET_PRODUCT_BY_ID, payload: product.data });
-        }
-      );
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function deleteProduct(id) {
+  return async function (dispatch) {
+    try {
+      const product = await axios
+        .delete(`http://localhost:3000/products/${id}`)
+        .then((response) => {
+          dispatch({ type: types.DELETE_PRODUCT, payload: product.data });
+        });
     } catch (error) {
       console.log(error);
     }

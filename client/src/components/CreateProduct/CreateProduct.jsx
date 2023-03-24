@@ -93,7 +93,7 @@ export default function CreateProduct() {
             </div>
             {errors.image && <h5 className="errorMessage">{errors.image}</h5>}
 
-            {state.name && state.price ? (
+            {state.name && state.price && state.image ? (
               <button className={s.submitButton} type="submit">
                 Create product <i class="material-icons">add</i>
               </button>

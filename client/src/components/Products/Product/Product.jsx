@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as itemActions from "../../../redux/reducer/Item/itemActions.js";
+import * as productActions from "../../../redux/reducer/Product/productActions.js";
+
 import { useStyles } from "./Product.styles.js";
 
 export default function Product({ id, name, price, image }) {
@@ -11,6 +13,7 @@ export default function Product({ id, name, price, image }) {
   const minValue = 1;
   const finalPrice = (price * input).toFixed(2);
   const { activeCart } = useSelector((state) => state.cartReducer);
+  const [product, setProduct] = useState({ id, name, price, image });
 
   let cartId;
 
@@ -46,7 +49,13 @@ export default function Product({ id, name, price, image }) {
   const handleAddToCart = () => {
     dispatch(itemActions.createItem(item));
   };
-
+  const handleDelete = () => {
+    dispatch(productActions.deleteProduct(id));
+    setProduct(null);
+  };
+  if (!product) {
+    return null;
+  }
   return (
     <div className={s.productCard}>
       <div>
@@ -55,6 +64,9 @@ export default function Product({ id, name, price, image }) {
           src={image}
           className={s.productImage}
         />
+        <button className={s.deleteProduct} onClick={handleDelete}>
+          x
+        </button>
       </div>
       <div className={s.productInfo}>
         <div className={s.productData}>
