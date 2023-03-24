@@ -39,8 +39,13 @@ const useStyles = makeStyles({
     lineHeight: 1.2,
     color: "#F5FBFB",
   },
-
+  landingData: {
+    display: "flex",
+    justifyContent: "center",
+  },
   shopNow: {
+    textAlign: "center",
+    maxWidth: 130,
     textDecoration: "none",
     backgroundColor: "#646E5A",
     color: "#F5FBFB",
@@ -48,14 +53,15 @@ const useStyles = makeStyles({
     padding: "15px 50px",
     borderRadius: 50,
     position: "absolute",
-    right: 60,
-    left: 60,
-    top: 580,
+    bottom: 10,
     boxShadow: "0px 0px 10px rgba(100, 110, 90, 0.5)",
   },
   shopButton: {
     fontWeight: 600,
     fontSize: "17px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-evenly",
   },
   heroImage: {
     marginTop: 60,
@@ -74,16 +80,12 @@ export default function Landing() {
       <div className={s.mainWrapper}>
         <div className={s.contentWrapper}>
           <section className={s.hero}>
-            <div>
+            <div className={s.landingData}>
               <h1 className={s.heroTitle}>Make your days feel comfy.</h1>
-              {/* <h3 className={s.heroDescription}>
-              Lorem Ipsum es simplemente el texto de relleno
-            </h3> */}
               <Link to="/home" className={s.shopNow}>
                 <a className={s.shopButton}>
                   Shop now
                   <i class="material-icons">arrow_forward</i>
-                  {/* <i class="material-icons"> Shop now arrow_forward</i> */}
                 </a>
               </Link>
             </div>

@@ -5,6 +5,7 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   productCard: {
+    marginRight: 40,
     borderRadius: 30,
     marginBottom: 40,
     boxShadow: "0px 0px 20px 3px rgba(131, 158, 127, 0.25)",
@@ -13,7 +14,7 @@ const useStyles = makeStyles({
     objectFit: "cover",
     borderRadius: "30px 30px 0 0 ",
     width: "100%",
-    height: 350,
+    height: "100%",
   },
   productInfo: {
     padding: 15,
@@ -36,8 +37,9 @@ const useStyles = makeStyles({
   },
   productControllers: {
     position: "relative",
-    flexDirection: "row",
-    justifyContent: "space-between",
+    display: "flex",
+    justifyContent: "start",
+    alignItems: "center",
   },
   productQuantity: {
     height: "100%",
@@ -55,8 +57,13 @@ const useStyles = makeStyles({
     backgroundColor: "#F3F3F3",
     borderRadius: 20,
     fontWeight: 600,
-    fontSize: 20,
+    fontSize: 27,
     color: "#848386",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "Nunito Sans",
+    fontWeight: 600,
   },
   addToCartButton: {
     position: "absolute",
@@ -64,6 +71,9 @@ const useStyles = makeStyles({
     right: 0,
     border: "none",
     backgroundColor: "#21252A",
+    "&:active": {
+      backgroundColor: "#C1C1C1",
+    },
     color: "#F5FBFB",
     fontFamily: "Nunito Sans",
     fontWeight: 400,
@@ -74,10 +84,6 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     minWidth: 175,
-  },
-  quantityControllers: {
-    height: 30,
-    paddingBottom: 5,
   },
 });
 
@@ -140,37 +146,36 @@ export default function Product({ id, name, price, description, image }) {
           <p className={s.price}>{finalPrice ? finalPrice : price}</p>
         </div>
         <div className={s.productControllers}>
-          <div className={s.quantityControllers}>
-            <button
-              className={s.productInc}
-              name="-"
-              onClick={handleClick}
-              disabled={input <= minValue}
-            >
-              -
-            </button>
-            <input
-              className={s.productQuantity}
-              type="text"
-              value={input}
-              onChange={(e) => setInput(parseInt(e.target.value) || 1)}
-            />
-            <button
-              className={s.productInc}
-              name="+"
-              onClick={handleClick}
-              disabled={input >= maxValue}
-            >
-              +
-            </button>
-          </div>
+          <button
+            className={s.productInc}
+            name="-"
+            onClick={handleClick}
+            disabled={input <= minValue}
+          >
+            -
+          </button>
+          <input
+            readOnly
+            className={s.productQuantity}
+            type="text"
+            value={input}
+            onChange={(e) => setInput(parseInt(e.target.value) || 1)}
+          />
+          <button
+            className={s.productInc}
+            name="+"
+            onClick={handleClick}
+            disabled={input >= maxValue}
+          >
+            +
+          </button>
 
           <button
             className={s.addToCartButton}
             name="add"
             onClick={handleAddToCart}
           >
-            Add to Cart <i class="material-icons">shopping_cart</i>
+            Add to Cart <i class="material-icons">add</i>
           </button>
         </div>
       </div>

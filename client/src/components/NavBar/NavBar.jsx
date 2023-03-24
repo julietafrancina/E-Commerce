@@ -4,28 +4,18 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(() => ({
-  link: {
-    display: "none",
+  header: {
+    background: "rgba(255, 255, 255, 0.27)",
   },
   hamburgerBtn: {
     display: "none",
   },
   mainContainer: {
+    zIndex: 1,
     position: "absolute",
   },
-  "@media (min-width: 768px)": {
-    link: {
-      display: "flex",
-    },
-    menuOpen: {
-      position: "fixed",
-      height: "100%",
-      width: "100%",
-      backgroundColor: "red",
-      display: "none",
-    },
-  },
   listItem: {
+    color: "#3A3333",
     marginBottom: 10,
     textDecoration: "none",
     fontWeight: 500,
@@ -35,10 +25,9 @@ const useStyles = makeStyles(() => ({
     display: "none",
   },
   listItems: {
-    color: "red",
     height: "55vw",
-    width: "100vw",
-    zIndex: 1,
+    width: "55vw",
+    zIndex: 2,
     display: "flex",
     flexDirection: "column",
     flexWrap: "wrap",
@@ -54,8 +43,41 @@ const useStyles = makeStyles(() => ({
       width: 50,
       height: 50,
       border: "none",
-      backgroundColor: "transparent",
+      background: "rgba(255, 255, 255, 0.27)",
       cursor: "pointer",
+    },
+  },
+  "@media (min-width: 768px)": {
+    mainContainer: {
+      position: "relative",
+    },
+    header: {
+      backgroundColor: "#FDFDFC",
+    },
+    listItem: {
+      color: "#9F9B93",
+      textDecoration: "none",
+      fontWeight: 400,
+      fontSize: 22,
+      padding: 10,
+      "&:hover": {
+        fontSize: 23,
+        fontWeight: 600,
+      },
+    },
+    listItems: {
+      paddingBottom: "30px",
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-around",
+      alignItems: "center",
+      height: "4vw",
+      top: 0,
+      left: 0,
+      right: 0,
+      width: "100%",
+      margin: "0 auto",
+      flexWrap: "wrap",
     },
   },
 }));
@@ -65,6 +87,19 @@ export default function NavBar() {
   const { activeCart } = useSelector((state) => state.cartReducer);
   const [id, setId] = useState();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [viewportWidth, setViewportWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mq = window.matchMedia(`(min-width: 600px)`);
+      setViewportWidth(mq.matches ? window.innerWidth : 0);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (activeCart) {
@@ -78,52 +113,35 @@ export default function NavBar() {
 
   return (
     <div>
-      <header>
+      <header className={s.header}>
         <div className={s.hamburgerBtn} onClick={setMenu}>
           <i class="material-icons">dehaze</i>
         </div>
-        {/* <img
-          className="s.logo"
-          src=""
-        /> */}
         <div className={s.mainContainer}>
-          <nav className={menuOpen ? s.menuOpen : s.menuClosed}>
+          <nav
+            className={
+              viewportWidth < 768 ? (menuOpen ? s.menuOpen : s.menuClosed) : " "
+            }
+          >
             <div className={s.listItems} onClick={setMenu}>
               <Link to="/home" className={s.listItem}>
-                <a className={s.listItem}>Home</a>
+                <a>Home</a>
               </Link>
               <Link to={`/cart/${id}`} className={s.listItem}>
-                <a className={s.listItem}>Cart</a>
+                <a>Cart</a>
               </Link>
               <Link to={`/history/${id}`} className={s.listItem}>
-                <a className={s.listItem}> History</a>
+                <a> History</a>
               </Link>
               <Link to="/about" className={s.listItem}>
-                <a className={s.listItem}>About </a>
+                <a>About </a>
               </Link>
               <Link to="/create" className={s.listItem}>
-                <a className={s.listItem}>Post product </a>
+                <a>Post product </a>
               </Link>
             </div>
           </nav>
         </div>
-        <nav>
-          <Link to="/home" className={s.link}>
-            <a className={s.listItem}>Home</a>
-          </Link>
-          <Link to={`/cart/${id}`} className={s.link}>
-            <a className={s.listItem}>Cart</a>
-          </Link>
-          <Link to={`/history/${id}`} className={s.link}>
-            <a className={s.listItem}>Purchase History</a>
-          </Link>
-          <Link to="/about" className={s.link}>
-            <a className={s.listItem}>About </a>
-          </Link>
-          <Link to="/create" className={s.link}>
-            <a className={s.listItem}>Post product</a>
-          </Link>
-        </nav>
       </header>
     </div>
   );

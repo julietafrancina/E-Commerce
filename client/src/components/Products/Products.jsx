@@ -7,6 +7,8 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   productsWrapper: {
+    flexWrap: "wrap",
+    display: "flex",
     fontFamily: "Nunito Sans",
   },
   heroTitle: {
