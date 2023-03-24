@@ -94,10 +94,8 @@ export const updateItem = async (req, res) => {
     const newItem = req.body;
 
     const itemToUpdate = await Item.findByPk(id);
-    console.log(itemToUpdate);
     let unitPrice = await findProduct(itemToUpdate.dataValues.productId);
     unitPrice = unitPrice.price;
-    console.log(newItem, unitPrice);
 
     const newTotal = newItem.newValue * unitPrice;
     await Item.update(

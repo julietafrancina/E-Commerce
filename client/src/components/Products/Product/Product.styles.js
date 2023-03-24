@@ -3,6 +3,7 @@ import { makeStyles } from "@mui/styles";
 export const useStyles = makeStyles({
   productCard: {
     position: "relative",
+    maxWidth: 400,
     marginRight: 40,
     borderRadius: 30,
     marginBottom: 40,
